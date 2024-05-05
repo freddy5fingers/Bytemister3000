@@ -1,0 +1,541 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytemister3000 Music Uploader - Easily Share Your Music</title>
+    <link rel="icon" type="image/png" href="favicon_io/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon_io/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="mask-icon" href="favicon_io/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Upload and share your music hassle-free with Bytemister3000, the ultimate music uploader. Enjoy music streaming anytime, anywhere. Artists can showcase their work too!" />
+    <link rel="canonical" href="https://bytemister3000.web.app/" />
+    <!-- Meta tags for Open Graph Protocol -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bytemister3000 Music Uploader - Easily Share Your Music" />
+    <meta property="og:description" content="Upload and share your music hassle-free with Bytemister3000, the ultimate music uploader. Enjoy music streaming anytime, anywhere. Artists can showcase their work too!" />
+    <meta property="og:url" content="https://bytemister3000.web.app/" />
+    <meta property="og:site_name" content="Bytemister3000" />
+    <meta property="og:image" content="https://bytemister3000.web.app/images/image.png" />
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="youstyles.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://www.youtube.com/iframe_api"></script> <!-- Load the YouTube API script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6964346147337739"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <style>
+@font-face {
+  font-family: 'Godofthunder';
+  src: url('fonts/Godofthunder.ttf') format('truetype');
+}
+
+#weather-widget {
+  font-family: 'Godofthunder', sans-serif; /* Use custom font with fallback to sans-serif */
+  color: rgb(19, 103, 151);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+#toggle-widget {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+#weather-info {
+  transition: height 0.3s ease; /* Add transition for smooth animation */
+}
+
+#weather-info.minimized {
+  height: 0;
+  overflow: hidden;
+}
+  </style>
+</head>
+<body>
+<header>
+  
+<div id="weather-widget">
+  <form id="weather-form">
+    <label for="location">Enter Location:</label>
+    <input type="text" id="location" name="location">
+    <button type="submit">Get Weather</button>
+</form>
+    <button id="toggle-widget">-</button>
+    <div id="weather-info">
+        <h3>Weather Information</h3>
+        <p id="weather-location"></p>
+        <p id="weather-temperature"></p>
+        <p id="weather-condition"></p>
+    </div>
+</div>
+  
+  <ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link active" href="youtube.html">YouTube</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="upload.html">Upload Music</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="my_music.html">My Music</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="index1.html">Make Beats</a>
+    </li>
+    <div class="logout">
+      <ul>
+        <li id="logout" class="hidden auth">
+          Log Out
+        </li>
+        <li id="login" class="hidden auth">
+          Log in
+        </li>
+      </ul> 
+    </div> <!-- Close div.logout -->
+  </ul> <!-- Close ul.nav -->
+</header>
+<div class="container">
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Enter your search query">
+    <button id="search-btn">Search</button>
+    <!-- Form for YouTube URL conversion -->
+    <form id="converterForm">
+      <label for="videoUrl">Enter YouTube Video URL:</label><br>
+      <input type="text" id="videoUrl" name="videoUrl" required><br><br>
+      <button type="button" onclick="convertToMP3()">Convert to MP3</button> <!-- Calling the convertToMP3 function -->
+    </form>
+    <div id="result"></div> <!-- Container for displaying title, preview image, and download button -->
+  </div>
+  
+  <button id="load-more-btn" style="display: none;">Load More</button>
+
+  
+  <div class="swiper-container">
+    <div class="swiper-wrapper" id="search-results"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div id="video-player"></div>
+
+  <!-- Playlist styles -->
+<div id="playlist">
+  <h2>Playlist</h2>
+  <ul id="playlist-items"></ul>
+  <button id="play-btn">▶️ Play</button>
+  <button id="pause-btn">⏸️ Pause</button>
+  <button id="stop-btn">⏹️ Stop</button>
+  <button id="play-next-btn">⏭️ Next</button>
+  <button id="play-previous-btn">⏮️ Previous</button>
+</div>
+
+    
+  </div>
+</div>
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">
+      <p style="color:white; text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Bytemister3000 is a music streaming service that allows you to upload, share, and enjoy your music. <br> So sit back and enjoy youtube ADD Free <br> <strong>Created By Dale King</strong></p>
+    </div>
+    <div class="footer-links">
+      <a href="https://gamersphere.web.app" target="_blank">Check out my game website Gamesphere</a>
+
+</footer>   
+     
+<
+<!-- Resizer code for responsive resizing -->
+<script>iFrameResize({ log: false }, '#buttonApi')</script>
+
+<!-- Include Axios library -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+async function convertToMP() {
+  const ftypes = document.querySelectorAll('input[name="ftype"]:checked');
+  const videoUrl = document.getElementById('videoUrl').value.trim();
+
+  if (ftypes.length === 0 || !videoUrl) {
+    alert('Please select FTYPE and enter VIDEO_URL');
+    return;
+  }
+
+  // Construct the FTYPE parameter value
+  let ftypeValue = '';
+  ftypes.forEach((checkbox, index) => {
+    if (index > 0) {
+      ftypeValue += ',';
+    }
+    ftypeValue += checkbox.value;
+  });
+
+  const apiUrl = `https://api.vevioz.com/apis/button/${ftypeValue}?url=${videoUrl}`;
+
+  try {
+    const response = await axios.get(apiUrl);
+
+    // Assuming the response contains the converted MP3 file URL
+    const mp3Url = response.data.link;
+
+    // Create an audio element for playing the MP3 file
+    const audioContainer = document.getElementById('result');
+    const audioElement = document.createElement('audio');
+    audioElement.controls = true;
+    audioElement.src = mp3Url;
+
+    // Create a close button for quitting the MP3 playback
+    const closeButton = document.createElement('button');
+    closeButton.textContent = '✖'; // Close symbol (x)
+    closeButton.onclick = () => {
+      audioElement.pause();
+      audioContainer.removeChild(audioElement);
+      audioContainer.removeChild(closeButton);
+      audioContainer.removeChild(downloadButton); // Remove download button as well
+    };
+
+    // Append the audio element and close button to the result container
+    audioContainer.appendChild(audioElement);
+    audioContainer.appendChild(closeButton);
+
+    // Create a download button for downloading the MP3 file
+    const downloadButton = document.createElement('button');
+    downloadButton.textContent = 'Download MP3';
+    downloadButton.onclick = () => {
+      const link = document.createElement('a');
+      link.href = mp3Url;
+      link.download = 'audio.mp3';
+      link.click();
+    };
+    audioContainer.appendChild(downloadButton);
+
+  } catch (error) {
+    console.error(error);
+    alert('Failed to convert the video to MP3');
+  }
+}
+</script>
+
+    
+</script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  const API_KEY = 'AIzaSyBWtvieKqzNpRo82Ur-D-LqVmtcdCxbkP0';
+  const API_URL = 'https://www.googleapis.com/youtube/v3/search';
+  
+  const swiper = new Swiper('.swiper-container', {
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    centeredSlides: true,
+    grabCursor: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  });
+
+  // Event listener for search button
+  document.getElementById('search-btn').addEventListener('click', async () => {
+    const query = document.getElementById('search-input').value.trim();
+    if (query) {
+      await fetchSearchResults(query);
+    }
+  });
+
+  // Fetch search results from YouTube API
+  let nextPageToken = ''; // Variable to store the token for the next page of search results
+
+document.getElementById('search-btn').addEventListener('click', async () => {
+  const query = document.getElementById('search-input').value.trim();
+  if (query) {
+    await fetchSearchResults(query);
+    // Show the Load More button after search results are fetched
+    document.getElementById('load-more-btn').style.display = 'block';
+  }
+});
+
+document.getElementById('load-more-btn').addEventListener('click', async () => {
+  const query = document.getElementById('search-input').value.trim();
+  if (query) {
+    await fetchSearchResults(query, nextPageToken);
+  }
+});
+
+// Function to fetch search results
+async function fetchSearchResults(query, pageToken = '') {
+  try {
+    const params = new URLSearchParams({
+      part: 'snippet',
+      q: query,
+      key: API_KEY,
+      type: 'video',
+      maxResults: 10,
+      pageToken: pageToken
+    });
+    const response = await fetch(`${API_URL}?${params}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch search results');
+    }
+    const data = await response.json();
+    displaySearchResults(data.items);
+    // Update nextPageToken for pagination
+    nextPageToken = data.nextPageToken || '';
+  } catch (error) {
+    console.error('Error fetching search results:', error);
+  }
+}
+
+  // Display search results
+function displaySearchResults(results) {
+  const searchResults = document.getElementById('search-results');
+  searchResults.innerHTML = '';
+  results.forEach(result => {
+    const { id, snippet } = result;
+    const videoId = id.videoId;
+    const thumbnail = snippet.thumbnails.medium.url;
+    const title = snippet.title;
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+      <img src="${thumbnail}" alt="${title}">
+      <p>${title}</p>
+      <button class="add-to-playlist-btn">Add to Playlist</button> <!-- Add button -->
+    `;
+    slide.addEventListener('click', () => {
+      displayVideo(videoId, title);
+    });
+    searchResults.appendChild(slide);
+
+    // Add event listener to the "Add to Playlist" button
+    const addToPlaylistBtn = slide.querySelector('.add-to-playlist-btn');
+    addToPlaylistBtn.addEventListener('click', () => {
+      addToPlaylist(videoId, title);
+    });
+  });
+  swiper.update();
+}
+
+  function displayVideo(videoId, title) {
+  const videoPlayer = document.getElementById('video-player');
+  const videoUrl = `https://www.youtube.com/watch?v=${videoId}`; // Construct the YouTube URL for the selected video
+  videoPlayer.innerHTML = `
+    <h2>${title}</h2>
+    <p><strong>YouTube URL:</strong> ${videoUrl}</p> <!-- Display the YouTube URL for the selected video -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+    <button id="save-to-playlist">Save to Playlist</button>
+  `;
+  const saveToPlaylistBtn = document.getElementById('save-to-playlist');
+  saveToPlaylistBtn.addEventListener('click', () => {
+    addToPlaylist(videoId, title);
+  });
+}
+  // Add video to playlist
+  function addToPlaylist(videoId, title) {
+    const playlistItems = document.getElementById('playlist-items');
+    const listItem = document.createElement('li');
+    listItem.textContent = title;
+    playlistItems.appendChild(listItem);
+  }
+
+ let playlist = []; // Array to store playlist items (video IDs)
+
+// Function to add video to the playlist
+function addToPlaylist(videoId, title) {
+  playlist.push({ videoId, title });
+  const playlistItems = document.getElementById('playlist-items');
+  const listItem = document.createElement('li');
+  listItem.textContent = title;
+  playlistItems.appendChild(listItem);
+}
+
+// Function to play the playlist
+document.getElementById('play-btn').addEventListener('click', () => {
+  playPlaylist();
+});
+
+document.getElementById('play-next-btn').addEventListener('click', ()=> {
+  playNextVideo()
+});
+// Function to stop the playlist
+document.getElementById('stop-btn').addEventListener('click', () => {
+  stopPlaylist()
+});
+
+document.getElementById('pause-btn').addEventListener('click', () => {
+  pauseVideo()
+  });
+
+
+async function playPlaylist() {
+  const videoPlayer = document.getElementById('video-player');
+  const playlistItems = document.getElementById('playlist-items');
+  const playButton = document.getElementById('play-playlist-btn');
+  
+  // Disable the play button to prevent multiple executions
+  playButton.disabled = true;
+
+  for (let i = 0; i < playlist.length; i++) {
+    const { videoId, title } = playlist[i];
+    // Display video being played in the playlist
+    playlistItems.childNodes[0].textContent = `Now Playing: ${title}`;
+    
+    // Play the video
+    await displayVideoInPlayer(videoPlayer, videoId, title);
+    
+    // Wait for the video to finish playing
+    await new Promise(resolve => {
+      videoPlayer.querySelector('iframe').addEventListener('load', () => {
+        const player = new YT.Player(videoPlayer.querySelector('iframe'));
+        player.addEventListener('onStateChange', function (event) {
+          if (event.data === YT.PlayerState.ENDED) {
+            resolve();
+          }
+        });
+      });
+    });
+
+    // Delay between videos (adjust as needed)
+    await new Promise(resolve => setTimeout(resolve, 5000));
+  }
+
+  // Reset playlist display after playback finishes
+  playlistItems.childNodes[0].textContent = 'Playlist';
+  playButton.disabled = false; // Enable the play button
+}
+
+// Function to play the next video in the playlist
+function playNextVideo() {
+    if (currentIndex < playlist.length - 1) {
+        currentIndex++;
+        console.log("Playing next video...");
+        console.log("Now Playing:", playlist[currentIndex]);
+        // Logic to play the next video in the playlist
+    } else {
+        console.log("End of playlist reached.");
+    }
+}
+
+// Function to pause the currently playing video
+function pauseVideo() {
+    console.log("Pausing video...");
+    // Logic to pause the currently playing video
+}
+
+// Function to display video in the player
+async function displayVideoInPlayer(player, videoId, title) {
+  const videoUrl = `https://www.youtube.com/embed/${videoId}`;
+  player.innerHTML = `
+    <h2>${title}</h2>
+    <p><strong>YouTube URL:</strong> ${videoUrl}</p>
+    <iframe width="560" height="315" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+  `;
+}
+
+// Function to stop the playlist (clears playlist array)
+function stopPlaylist() {
+  playlist = []; // Clear the playlist array
+  const playlistItems = document.getElementById('playlist-items');
+  playlistItems.innerHTML = ''; // Clear the playlist display
+}
+
+async function playPlaylist() {
+  const playlistItems = document.getElementById('playlist-items');
+  const videoPlayer = document.getElementById('video-player');
+  let currentIndex = 0;
+
+  // Define a function to play the current video in the playlist
+  async function playCurrentVideo() {
+    const { videoId, title } = playlist[currentIndex];
+    playlistItems.childNodes[0].textContent = `Now Playing: ${title}`;
+    await displayVideoInPlayer(videoPlayer, videoId, title);
+    currentIndex++;
+
+    // Check if there are more videos in the playlist
+    if (currentIndex < playlist.length) {
+      // If there are more videos, play the next video after a delay
+      setTimeout(playCurrentVideo, 10000); // Adjust timeout as needed
+    } else {
+      // If there are no more videos, reset the playlist display
+      playlistItems.childNodes[0].textContent = 'Playlist';
+    }
+  }
+
+  // Start playing the playlist
+  playCurrentVideo();
+}
+
+// Function to display video in the player
+async function displayVideoInPlayer(player, videoId, title) {
+  const videoUrl = `https://www.youtube.com/embed/${videoId}`;
+  player.innerHTML = `
+    <h2>${title}</h2>
+    <p><strong>YouTube URL:</strong> ${videoUrl}</p>
+    <iframe width="560" height="315" src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+  `;
+}
+
+</script>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const weatherForm = document.getElementById("weather-form");
+    const locationInput = document.getElementById("location");
+
+    weatherForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+        
+        const location = locationInput.value;
+
+        updateWeatherWidget(location);
+    });
+});
+
+const updateWeatherWidget = async (location) => {
+    try {
+        const weatherLocation = document.getElementById("weather-location");
+        const weatherTemperature = document.getElementById("weather-temperature");
+        const weatherCondition = document.getElementById("weather-condition");
+
+        // Making the API request using Axios
+        const response = await axios.request({
+            method: 'GET',
+            url: 'https://yahoo-weather5.p.rapidapi.com/weather',
+            params: {
+                location: location,
+                format: 'json',
+                u: 'c' // Unit for temperature (c for Celsius)
+            },
+            headers: {
+              'X-RapidAPI-Key': '84668a0e9fmsh4cf5b7d67f0d48cp17809fjsn6cd97cc27557',
+              'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
+            }
+        });
+
+        // Update weather information in the widget
+        weatherLocation.textContent = `Location: ${response.data.location.city}, ${response.data.location.region}, ${response.data.location.country}`;
+        weatherTemperature.textContent = `Temperature: ${response.data.current_observation.condition.temperature} °C`;
+        weatherCondition.textContent = `Condition: ${response.data.current_observation.condition.text}`;
+    } catch (error) {
+        // Handle any errors that occur during the API request
+        console.error('Error fetching weather data:', error);
+    }
+};
+
+
+</script>
+<script type="module" src="logout.js"></script>
+</body>
+</html>

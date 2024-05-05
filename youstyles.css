@@ -1,0 +1,202 @@
+/* Reset default margin and padding */
+body, h1, h2, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set font family, text color, and background color */
+body {
+  font-family: Luminari, sans-serif; /* Fallback font */
+  color: #fff; /* White text color */
+  background-image: url('images/burn.jpg'); /* Background image */
+}
+
+/* Apply hover effect to all buttons */
+button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background on hover */
+}
+#video-player h2 {
+  color: white;
+}
+
+
+
+/* Header styles */
+header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Navigation styles */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav li {
+  margin-right: 20px;
+}
+
+.nav li:last-child {
+  margin-right: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #FF0000; /* Hover color */
+}
+
+/* Container styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#converterForm {
+  max-width: 400px; /* Adjust the maximum width as needed */
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+#converterForm label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#converterForm input[type="text"],
+#converterForm input[type="url"],
+#converterForm input[type="checkbox"] {
+  width: calc(100% - 20px); /* Adjust the width and remove extra padding */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#converterForm input[type="checkbox"] {
+  width: auto; /* Adjust the width as needed */
+  margin-right: 5px;
+}
+
+#converterForm button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+#converterForm button:hover {
+  background-color: #0056b3;
+}
+
+/* Slim search button */
+#search-btn {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #FF0000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 25%;
+}
+
+#search-btn:hover {
+  background-color: #FF6666; /* Hover color */
+}
+
+/* Swiper styles */
+.swiper-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
+/* Video player styles */
+#video-player {
+  margin-bottom: 20px;
+}
+
+#video-player h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#video-player iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+}
+
+/* Playlist styles */
+#playlist {
+  max-width: 800px;
+}
+
+#playlist h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+#playlist-items {
+  list-style-type: none;
+}
+
+#playlist-items li {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+/* Login/logout button styles */
+#login,
+#logout {
+  cursor: pointer;
+  color: white; /* White text color */
+  transition: background-color 0.3s ease;
+}
+
+#login:hover,
+#logout:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background on hover */
+}

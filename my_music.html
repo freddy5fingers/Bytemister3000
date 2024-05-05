@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytemister3000 Music Uploader - Easily Share Your Music</title>
+    <link rel="icon" type="image/png" href="favicon_io/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon_io/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="mask-icon" href="favicon_io/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Upload and share your music hassle-free with Bytemister3000, the ultimate music uploader. Enjoy music streaming anytime, anywhere. Artists can showcase their work too!" />
+    <link rel="canonical" href="https://bytemister3000.web.app/" />
+    <!-- Meta tags for Open Graph Protocol -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bytemister3000 Music Uploader - Easily Share Your Music" />
+    <meta property="og:description" content="Upload and share your music hassle-free with Bytemister3000, the ultimate music uploader. Enjoy music streaming anytime, anywhere. Artists can showcase their work too!" />
+    <meta property="og:url" content="https://bytemister3000.web.app/" />
+    <meta property="og:site_name" content="Bytemister3000" />
+    <meta property="og:image" content="https://bytemister3000.web.app/images/image.png" />
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+@font-face {
+  font-family: 'Godofthunder';
+  src: url('fonts/Godofthunder.ttf') format('truetype');
+}
+
+#weather-widget {
+  font-family: 'Godofthunder', sans-serif; /* Use custom font with fallback to sans-serif */
+  color: rgb(19, 103, 151);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+#toggle-widget {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+#weather-info {
+  transition: height 0.3s ease; /* Add transition for smooth animation */
+}
+
+#weather-info.minimized {
+  height: 0;
+  overflow: hidden;
+}
+  </style>
+<script type="module" src="login.js"></script>
+<script type="module" src="bundle.js"></script>
+    <title>ByteMister3000</title>
+</head>
+<body>
+    <div id="weather-widget">
+        <form id="weather-form">
+          <label for="location">Enter Location:</label>
+          <input type="text" id="location" name="location">
+          <button type="submit">Get Weather</button>
+      </form>
+          <button id="toggle-widget">-</button>
+          <div id="weather-info">
+              <h3>Weather Information</h3>
+              <p id="weather-location"></p>
+              <p id="weather-temperature"></p>
+              <p id="weather-condition"></p>
+          </div>
+      </div>
+    <header> 
+
+<!--------------------------------------------Left top section-------------------------------------------------------> 
+        <div class="menu_side hidden"> 
+            <h1>You Own This</h1>
+            <div class="playlist">
+                <h3 class="active"><span></span><i class="bi bi-music-note-beamed"></i>ByteMister3000</h3>
+            </div>
+
+<!--------------------------------------------Left bottom section-------------------------------------------------------> 
+            <div class="menu_song"> 
+                <li class="songItem">
+                    <span>01</span>
+                    <img src="images/img.jpg" alt="cover art">
+                    <h5>
+                        Smooth Criminal
+                        <div class="artist"> Micheal Jackson </div>
+                        <i class="bi playlistPlay bi-play-circle" id="1"></i>
+                    </h5>
+                </li>
+                <li class="songItem">
+                    <span>02</span>
+                    <img src="images/img.jpg" alt="cover art">
+                    <h5>
+                        Smooth Criminal
+                        <div class="artist"> Micheal Jackson </div>
+                        <i class="bi playlistPlay bi-play-circle" id="2"></i>
+                    </h5>
+                </li>
+                
+                     
+            </div>
+        </div>
+
+<!--------------------------------------------Right section -------------------------------------------------------> 
+<div class="song_side" style="width: 100%"> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Bytemister3000</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="youtube.html">YouTube</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">My Music</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="upload.html">Upload Music</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index1.html">Make Beats</a>
+                    </li>
+                </ul>
+                
+                <div class="search">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search music...">
+                </div>
+
+                <div class="user">
+                    <img id="userDP" class="hidden" src="" alt="User" title="">
+                    <span id="userID" class=""></span>
+                </div>
+
+                <div class="logout">
+                    <ul>
+                        <li id="logout" class="hidden auth">
+                            Log Out
+                          </li>
+                          <li id="login" class="hidden auth">
+                            Log in
+                          </li>
+                    </ul> 
+                </div>
+            </nav> 
+            
+            <!-- top section (Music Info)-->
+            <div class="content" style="margin-left:50px">
+                <div class="contentBanner">
+                    <h1 id="songTitle"> </h1>
+                    <p id="artistTitle" style="color: black;"> Artist name</p>
+                    <div class="buttons" id="contButton">
+                        <button id='playBanner' class="hidden"> </button>
+                    </div>
+                </div>
+                <div class="coverArt">
+                    <img src="" alt="Cover Art" id="coverArtBanner" />
+                </div>
+            </div>
+            
+
+             <!-- recommended section -->
+             <div class="popular_song">
+                <div class="h4" id="uploadedMusic" style="margin-left:50px; margin-bottom:30px;">
+                    <p>Uploaded Music</p>
+                </div>
+            </div>
+
+            <div class="songList">
+                <ul id="songList">
+                    <!----------------Uncomment for testing purposes------------------------------ 
+                    <li>
+                        <img src="images/img.jpg" alt="cover art">
+                        <div id="mysongTitle"> On My Way 
+                        <div id="myartistTitle"> Alan Walker </div>
+                        </div>
+                        <i class="bi playlistPlay bi-play-circle" id="playButton"></i>
+                        <i class="bi bi-trash3" id="deleteButton" title="Delete Music"></i>
+                    </li>
+                    
+ <div id="editDiv" class="">
+   <div class="leftDiv">
+        <Label>Title :</Label>
+        <input id="editTitle" type="text">
+        <br>
+        <Label>Artist :</Label>
+        <input id="editArtist" type="text">
+    </div>
+    <div class="rightDiv">
+        <Label>Featured Artists :</Label>
+        <input id="editFeatured" type="text">
+        
+        <button id="editSubmit">EDIT</button>
+        <button id="editCancel">CANCEL</button>
+    </div>
+
+</div>  -->
+                </ul>
+
+            </div>
+        </div>
+    </header>
+<!--------------------------------------------Bottom (play) section------------------------------------------------------->
+<div class="master_play"> 
+    <div class="wave">
+        <div class="wave1"> </div>
+        <div class="wave1"> </div>
+        <div class="wave1"> </div>
+    </div>
+    <div class="image">
+        <img src="#" id ="masterPlayArt" />
+    </div>
+    
+    <h5>
+        <span id="masterPlayTitle"> </span>
+        <div class="artist" id="masterPlayArtist"> </div>
+    </h5>
+    <div class="icon">
+        <i class="bi bi-skip-start" id="back"></i>
+        <i class="bi bi-play-circle" id="masterPlay"></i>
+        <i class="bi bi-skip-end" id="next"></i>
+    </div>
+    <audio id="currentMusic" src="#"> 
+        
+    </audio>
+
+    <span id="currentStart">0:00</span>
+    <div class="bar">
+        <input type="range" id="seek" min="0" value="0" max="100"> 
+        <div class="bar2" id="bar2"></div>
+        <div class="dot"></div>
+    </div>
+    <span id="currentEnd">0:00</span>
+
+    <div class="vol">
+        <i class="bi bi-volume-down" id="vol_icon"></i>
+        <input type="range" id="volume" min="0" value="30" max="100">
+        <div class="vol_bar"></div>
+        <div class="dot" id="vol_dot"></div>
+    </div>
+
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+       const weatherForm = document.getElementById("weather-form");
+       const locationInput = document.getElementById("location");
+   
+       weatherForm.addEventListener("submit", function (event) {
+           event.preventDefault(); // Prevent form submission
+           
+           const location = locationInput.value;
+   
+           updateWeatherWidget(location);
+       });
+   });
+   
+   const updateWeatherWidget = async (location) => {
+       try {
+           const weatherLocation = document.getElementById("weather-location");
+           const weatherTemperature = document.getElementById("weather-temperature");
+           const weatherCondition = document.getElementById("weather-condition");
+   
+           // Making the API request using Axios
+           const response = await axios.request({
+               method: 'GET',
+               url: 'https://yahoo-weather5.p.rapidapi.com/weather',
+               params: {
+                   location: location,
+                   format: 'json',
+                   u: 'c' // Unit for temperature (c for Celsius)
+               },
+               headers: {
+                 'X-RapidAPI-Key': '84668a0e9fmsh4cf5b7d67f0d48cp17809fjsn6cd97cc27557',
+                 'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
+               }
+           });
+   
+           // Update weather information in the widget
+           weatherLocation.textContent = `Location: ${response.data.location.city}, ${response.data.location.region}, ${response.data.location.country}`;
+           weatherTemperature.textContent = `Temperature: ${response.data.current_observation.condition.temperature} °C`;
+           weatherCondition.textContent = `Condition: ${response.data.current_observation.condition.text}`;
+       } catch (error) {
+           // Handle any errors that occur during the API request
+           console.error('Error fetching weather data:', error);
+       }
+   };
+   
+   
+   </script>
+<script type="module" src="musicPlayer.js"></script>
+<script type="module" src="logout.js"></script>
+<script type="module" src="fetch.js"></script>
+
+
+</body>
+</html>

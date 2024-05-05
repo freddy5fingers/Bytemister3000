@@ -1,0 +1,451 @@
+/* styles.css */
+/* styles.css */
+
+/* Make the background bright */
+body {
+    background-color: #f8f9fa;
+}
+
+header .song_side nav{
+    padding-top: 20px;
+    width: 100%;
+    height: 10%;
+    margin: auto;
+    /*border: 1px solid #fff; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    z-index: 3;
+    backdrop-filter: blur(50px);
+}
+header .song_side nav ul{
+    display: flex;
+    margin-left: 30px;
+}
+header .song_side nav ul li {
+    position: relative;
+    list-style-type: none;
+   
+}
+header .song_side nav ul li a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #757a88;
+    margin-right: 25px;
+    cursor: pointer;
+    transition: 0.5s linear;
+}
+header .song_side nav ul li a:hover{
+    color:#fff;
+}
+header .song_side nav ul .active{
+    font-weight: 700;
+    color: #757a88;
+}
+header .song_side nav .search{
+    position: relative;
+    width: 40%;
+    padding: 1px 10px;
+    border-radius: 20px;
+    color: gray;
+}
+header .song_side nav .search::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: rgba(219, 218, 218, 0.1);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+header .song_side nav .search .bi{
+    font-size: 13px;
+    padding: 3px 0px 0px 10px;
+    
+}
+header .song_side nav .search input{
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0px 10px;
+    color: #fff;
+    font-size: 12px;
+}
+header .song_side nav .user{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+header .song_side nav .user img{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px #131312;
+}
+header .song_side nav .logout li{
+    cursor: pointer;
+    font-size: 14px;
+    font-weight:500;
+    color: #a4a8b4;
+    right: 30px;
+}
+header .song_side nav .logout li:hover{
+    color: #36e2ec;
+}
+
+/* Apply styles to the header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #27087e; /* Bootstrap primary color */
+}
+
+/* Apply styles to the left top section */
+.menu_side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+}
+
+.menu_side h1 {
+    margin-bottom: 20px;
+}
+
+.menu_side .playlist {
+    margin-bottom: 20px;
+}
+
+.menu_side .playlist h3 {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu_side .playlist h3.active {
+    font-weight: bold;
+}
+
+.menu_side .playlist h3.active span {
+    margin-right: 5px;
+}
+
+/* Apply styles to the left bottom section */
+.menu_song {
+    width: 100%;
+}
+
+.menu_song .songItem {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.menu_song .songItem img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.menu_song .songItem h5 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.menu_song .songItem .artist {
+    font-size: 14px;
+    color: #888;
+}
+
+.menu_song .songItem i {
+    margin-left: auto;
+}
+
+/* Apply styles to the right section */
+.song_side {
+    flex: 1;
+    padding: 10px;
+}
+
+.song_side nav ul li {
+    margin-right: 10px;
+}
+
+.song_side nav ul li:last-child {
+    margin-right: 0;
+}
+
+.song_side nav ul li.active a {
+    font-weight: bold;
+}
+
+/* Apply styles to the content */
+.content {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.contentBanner {
+    flex: 1;
+}
+
+.contentBanner h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.contentBanner p {
+    margin: 5px 0;
+    color: #888;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    background-color: #0056b3; /* Darker shade of primary color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #004b9a; /* Slightly darker shade */
+}
+
+/* Apply styles to the cover art */
+.coverArt img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Apply styles to the recommended section */
+.popular_song {
+    margin-top: 20px;
+}
+
+.popular_song p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff; /* Bootstrap primary color */
+}
+
+/* Apply styles to the song list */
+.songList {
+    margin-top: 20px;
+}
+
+.songList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.songList ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.songList ul li:last-child {
+    border-bottom: none;
+}
+
+.songList ul li img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.songList ul li #mysongTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.songList ul li #myartistTitle {
+    font-size: 16px;
+    color: #888;
+}
+
+.songList ul li i {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.songList ul li i:hover {
+    color: #dc3545; /* Bootstrap danger color */
+}
+
+/* Apply styles to the master play section */
+.master_play {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background */
+    border-top: 1px solid #eee;
+}
+
+.master_play h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.master_play .image {
+    margin-right: 20px;
+}
+
+.master_play .image img {
+    max-width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.master_play .icon i {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+/* Apply styles to the audio player */
+.bar {
+    position: relative;
+    width: 100%;
+}
+
+.bar input[type="range"] {
+    width: 100%;
+    background: transparent;
+}
+
+.bar input[type="range"]:focus {
+    outline: none;
+}
+
+.bar input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: #555;
+    border-radius: 1px;
+}
+
+.bar input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #007bff; /* Bootstrap primary color */
+    margin-top: -4px;
+}
+
+.bar input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: #555;
+}
+
+.bar input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: #555;
+    border-radius: 1px;
+}
+
+.bar input[type="range"]::-moz-range-thumb {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #007bff; /* Bootstrap primary color */
+    cursor: pointer;
+}
+
+.bar input[type="range"]::-ms-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.bar input[type="range"]::-ms-fill-lower {
+    background: #555;
+    border-radius: 1px;
+}
+
+.bar input[type="range"]::-ms-fill-upper {
+    background: #555;
+    border-radius: 1px;
+}
+
+.bar input[type="range"]::-ms-thumb {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #007bff; /* Bootstrap primary color */
+    cursor: pointer;
+    margin-top: 0px;
+}
+
+.bar #currentStart,
+.bar #currentEnd {
+    font-size: 12px;
+    color: #888;
+}
+
+.bar .vol input[type="range"] {
+    width: 50px;
+}
+
+.bar .vol input[type="range"]::-webkit-slider-runnable-track {
+    background: #555;
+}
+
+.bar .vol input[type="range"]::-moz-range-track {
+    background: #555;
+}
+
+.bar .vol input[type="range"]::-ms-track {
+    background: transparent;
+}
+
+.bar .vol .vol_bar {
+    background: #007bff; /* Bootstrap primary color */
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.bar .vol #vol_dot {
+    background: #007bff; /* Bootstrap primary color */
+}
+
+/* Hide the elements initially */
+.hidden {
+    display: none;
+}

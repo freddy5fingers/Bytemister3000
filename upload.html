@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytemister3000 Music Uploader - Easily Share Your Music</title>
+    <link rel="icon" type="image/png" href="favicon_io/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon_io/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="mask-icon" href="favicon_io/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Upload and share your music hassle-free with Bytemister3000, the ultimate music uploader. Enjoy music streaming anytime, anywhere. Artists can showcase their work too!" />
+    <link rel="canonical" href="https://bytemister3000.web.app/" />
+    <!-- Meta tags for Open Graph Protocol -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bytemister3000 Music Uploader - Easily Share Your Music" />
+    <meta property="og:description" content="Upload and share your music hassle-free with Bytemister3000, the ultimate music uploader. Enjoy music streaming anytime, anywhere. Artists can showcase their work too!" />
+    <meta property="og:url" content="https://bytemister3000.web.app/" />
+    <meta property="og:site_name" content="Bytemister3000" />
+    <meta property="og:image" content="https://bytemister3000.web.app/images/image.png" />
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="bundle.js"></script>
+    <title>Bytemister3000</title>
+</head>
+<body>
+    <header> 
+
+
+<!--------------------------------------------menu section -------------------------------------------------------> 
+        <div class="right_side"> 
+            <nav>
+                <ul>
+                    <li class=""><a href="youtube.html">YouTube</a></li>
+                    <li id="my_music" class=""><a href="my_music.html"> My Music </a></li>
+                    <li id="uploadLink" class="active"><a href=""> Upload Music </a></li> 
+                    <li class="nav-link" href="index1.html">Make Beats</a>
+                    </li>
+                </ul>
+                <div class="search"> </div>
+
+                <div class="user">
+                    <img id="userDP"  class="hidden" src="images/ctaIMG.webp" alt="User" title="Maina Kimani">
+                    <span id="userID" class=""></span>
+                </div>
+
+                <div class="auth">
+                    <ul>
+                        <li id="logout" class="hidden auth">
+                            Log Out
+                          </li>
+                          <li id="login" class="hidden auth">
+                            Log in
+                          </li>
+                    </ul> 
+                </div>
+            </nav> 
+<!--------------------------------------------form section -------------------------------------------------------> 
+
+<div class="uploadForm" id="display1">
+    <div class="hidden" id="display2">
+    
+        <h1>Upload Your Music</h1>
+
+                <label id="songUpload">Select the music from your device <i>(You can edit the file name after file selection)</i> *</label><br>
+                <div class="selection">
+                <button id="selectSong" class=""> Select Song </button> 
+                <div class="label" id="divInput">
+                    <input type="text" id="namebox" class="" placeholder="Music Name ..." accept="audio/*">
+                </div>
+                <label id="extLabel" > </label>
+                <audio id="mySong" src=""></audio>
+                </div>  
+                
+                
+                <label id="imageUpload">Select the cover art</label>
+                <div class="selection">
+                <button id="selectImage" class=""> Select Image </button> 
+                <div class="label"><input type="text" id="imgNamebox" class="" placeholder="Image Name ..."></div>
+                <label id="imgLabel" > </label>
+                </div>
+                
+                
+                <label id="artistLabel">Enter the main artist *</label><br>
+                <div class="selection">
+                <div class="label"><input type="text" id="artistTitle" class="" placeholder="Artist ..."><br><br></div>
+                </div>
+
+                
+                <label id="artistFtLabel">Enter featured artists <i>(seperate their names using commas)</i></label><br>
+                <div class="selection">
+                <div class="label"><input type="text" id="ftArtists" class="" placeholder="Artist 1, Artist 2, ..."><br><br> </div>
+                </div>
+
+                <div class="options">
+                <label id="artistFtLabel">Select the Genre *</label><br>
+                <select name="genre" id="genre">
+                    <option value="">Select Genre</option>
+                    <option value="Afro-Beats">Afro-Beats</option>
+                    <option value="Afro-soul">Afro-Soul</option>
+                    <option value="Amapiano">Amapiano</option>
+                    <option value="Bongo">Bongo</option>
+                    <option value="Country">Country</option>
+                    <option value="Drill">Drill</option>
+                    <option value="Gengetone">Gengetone</option>
+                    <option value="Gospel">Gospel</option>
+                    <option value="Hip-Hop">Hip-Hop</option>
+                    <option value="House">House</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Reggae">Reggae</option>
+                    <option value="RnB">RnB</option>
+                    <option value="Soft-Rock">Soul</option>
+                    <option value="Soul">Soft-Rock</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <p class="ps">
+                    Fields with * must be filled
+                </p>
+                
+                <label id="progress" class="progress"> </label>
+                <progress id="uploadProgress" value="0" max="100" class="hidden"></progress>
+
+                <div class="submit">
+                <button id="upload" class="upload"> Upload </button>
+                <button id="cancelUpload" class="cancel"> Cancel </button>
+                </div>
+
+            </div>
+
+    </div>
+
+    </header>
+    <script type="module" src="logout.js"></script>
+    <script type="module" src="upload.js"></script>
+    
+
+</body>
+</html>
